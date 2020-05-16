@@ -14,9 +14,21 @@ app.use(express.json());
 
 var reservations = [
     {
-        routename: "wesley",
+        routeName: "wesley",
         name: "Wesley",
-        phoneNumber: 4518526413,
-        email: 
-    }
+        phoneNumber: "4518526413",
+        email: "wslifer@aol.com",
+    },
+    {
+        routeName: "james",
+        name: "James",
+        phoneNumber: "5127846243",
+        email: "jvanslyke@aol.com",
+    },
+    {
+        routeName: "holly",
+        name: "Holly",
+        phoneNumber: "7085416814",
+        email: "hpro87@hotmail.com",
+    },
 ]
