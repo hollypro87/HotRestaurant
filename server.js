@@ -13,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
+const waitList = [];
 var reservations = [
     {
         routeName: "wesley",
@@ -48,20 +49,6 @@ app.get("/api/reservations", function (req, res) {
 });
 
 
-app.get("/api/reservations/:reservations", function (req, res) {
-    var chosen = req.params.reservations;
-
-    console.log(chosen);
-
-    for (var i = 0; i < reservations.length; i++) {
-        if (chosen === reservations[i].routeName) {
-            return res.json(reservations[i]);
-        }
-    }
-
-    return res.json(false);
-});
-
 app.post("/api/reservations", function (req, res) {
 
     var newReservations = req.body;
@@ -70,8 +57,9 @@ app.post("/api/reservations", function (req, res) {
     newReservations.routeName = newReservations.name.replace(/\s+/g, "").toLowerCase();
 
     console.log(reservations);
-
-    reservations.push(newReservations);
+    if (reservations.length > 5) {
+        waitList.push(newReservations);
+    } else { reservations.push(newReservations) };
 
     res.json(newReservations);
 });
