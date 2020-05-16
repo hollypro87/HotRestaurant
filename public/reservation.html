@@ -17,8 +17,6 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
@@ -51,37 +49,70 @@
     </div>
     <div class="container">
       <div class="card">
-          <div class="card-header">
-              <strong>Reservations</strong>
-          </div>
-          <div class="card-body">
-              <blockquote class="blockquote mb-0">
-                  <div class="card">
-                      <div class="card-header">
-                        <h4></h4>
-                      </div>
-                     
-                    </div>                  
-                  </footer>
-              </blockquote>
-          </div>
+        <div class="card-header">
+          <strong>Reservations</strong>
+        </div>
+        <div class="card-body">
+          <ul class="list-group" id="tables">
+            <li class="list-group-item mt-3">
+              <h2>Table 1</h2>
+              <hr />
+              <h2>Name:</h2>
+              <h2>Phone:</h2>
+              <h2>Email:</h2>
+            </li>
+            <li class="list-group-item mt-3">
+              <h2>Table 2</h2>
+              <hr />
+              <h2>Name:</h2>
+              <h2>Phone:</h2>
+              <h2>Email:</h2>
+            </li>
+            <li class="list-group-item mt-3">
+              <h2>Table 3</h2>
+              <hr />
+              <h2>Name:</h2>
+              <h2>Phone:</h2>
+              <h2>Email:</h2>
+            </li>
+            <li class="list-group-item mt-3">
+              <h2>Table 4</h2>
+              <hr />
+              <h2>Name:</h2>
+              <h2>Phone:</h2>
+              <h2>Email:</h2>
+            </li>
+            <li class="list-group-item mt-3">
+              <h2>Table 5</h2>
+              <hr />
+              <h2>Name:</h2>
+              <h2>Phone:</h2>
+              <h2>Email:</h2>
+            </li>
+          </ul>
+        </div>
       </div>
-  </div>
-  <div class="container">
+    </div>
+    <div class="container">
       <div class="card">
-          <div class="card-header">
-              <strong>Waiting List</strong> 
-          </div>
-          <div class="card-body">
-              <blockquote class="blockquote mb-0">
-                  <div class="card">
-                      <div class="card-header">
-                          <h4></h4>
-                      </div>
-                  </div>
-              </blockquote>
-          </div>
+        <div class="card-header">
+          <strong>Waiting List</strong>
+        </div>
+        <div class="card-body">
+          <ul class="list-group" id="waitList"></ul>
+        </div>
       </div>
-  </div>
+    </div>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      function fillTables() {
+        $.ajax({ url: "/api/reservations", method: "GET" }).then(
+          (tableData) => {
+            console.log(tableData);
+          }
+        );
+      }
+    </script>
   </body>
 </html>
