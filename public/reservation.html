@@ -110,6 +110,21 @@
         $.ajax({ url: "/api/reservations", method: "GET" }).then(
           (tableData) => {
             console.log(tableData);
+            for (let i = 0; i < tableData.length; i++) {
+              const tables = $("#tables");
+
+              const listItem = $('<li class="list-group-item mt-3">');
+
+              listItem.append(
+                $("<h2>").text("Table #" + (i + 1)),
+                $("<hr>"),
+                $("<h2>").text("Name: " + tableData[i].name),
+                $("<h2>").text("Phone: " + tableData[i].phoneNumber),
+                $("<h2>").text("Email: " + tableData[i].email)
+              );
+
+              tables.append(listItem);
+            }
           }
         );
       }
